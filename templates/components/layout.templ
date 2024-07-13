@@ -1,0 +1,53 @@
+package components
+
+script navigationToggle() {
+	const navigation = document.getElementById("navigationTop");
+	if (navigation.className == "glow-bar") {
+		navigation.className = "glow-bar responsive";
+	} else {
+		navigation.className = "glow-bar";
+	}
+}
+
+templ navigation() {
+	<div class="glow-bar" id="navigationTop">
+		<a href="/">Home</a>
+		<a href="javascript:void(0);" class="icon" onclick={ navigationToggle() }>
+			<img src="https://glowman554.de/menu.svg" alt="Menu" style="width: 2rem;"/>
+		</a>
+	</div>
+}
+
+templ header() {
+	<header class="glow-header" style="padding:50px 16px">
+		<h1 class="glow-header-title">Hello</h1>
+	</header>
+}
+
+templ footer() {
+	<footer class={ "glow-footer" }>
+		<p>Copyright (c) 2024 Glowman554</p>
+	</footer>
+}
+
+templ Layout(title string, childs templ.Component) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>{ title }</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+			<script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js"></script>
+			<link rel="stylesheet" href="/static/styles.css"/>
+		</head>
+		<body>
+			<div class="glow-content">
+				@navigation()
+				@header()
+				@childs
+			</div>
+			@footer()
+		</body>
+	</html>
+}

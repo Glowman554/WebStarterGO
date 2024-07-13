@@ -1,0 +1,11 @@
+package pages
+
+import "github.com/Glowman554/WebStarterGO/templates/components/account"
+
+templ Index() {
+	<div class="glow-text">
+		@account.LoginFieldRef()
+		<br/>
+		@account.CreateFieldRef()
+	</div>
+}

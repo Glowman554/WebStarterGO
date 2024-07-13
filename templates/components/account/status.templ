@@ -1,0 +1,18 @@
+package account
+
+templ AlreadyLoggedIn(username string) {
+	<div class="glow-field">
+		<p>Already logged in</p>
+		<div class="glow-center">
+			<button class="glow-fancy-button" hx-get="/account/logout" hx-swap="outerHTML">Logout</button>
+		</div>
+	</div>
+}
+
+templ NotLoggedIn() {
+	<div class="glow-field">
+		<div class="glow-center">
+			You need to be logged in to use this!
+		</div>
+	</div>
+}

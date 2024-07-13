@@ -1,0 +1,39 @@
+package account
+
+templ common(submitText string) {
+	<div class="glow-field">
+		<div class="glow-section">
+			Username
+			<input class="glow-fancy-input" type="text" name="username"/>
+		</div>
+		<div class="glow-section">
+			Password
+			<input class="glow-fancy-input" type="password" name="password"/>
+		</div>
+		<div class="glow-center">
+			<input type="submit" class="glow-fancy-button" value={ submitText }/>
+		</div>
+	</div>
+}
+
+templ LoginField() {
+	<form hx-post="/account/login" hx-ext="json-enc" hx-swap="outerHTML">
+		@common("Login")
+	</form>
+}
+
+templ CreateField() {
+	<form hx-post="/account/create" hx-ext="json-enc" hx-swap="outerHTML">
+		@common("Create account")
+	</form>
+}
+
+
+templ LoginFieldRef() {
+	<div hx-get="/account/login" hx-trigger="revealed"></div>
+}
+
+templ CreateFieldRef() {
+	<div hx-get="/account/create" hx-trigger="revealed"></div>
+}
+

@@ -1,0 +1,22 @@
+package account
+
+templ Success(message string) {
+	<div class="glow-field">
+		<div class="glow-center">
+			{ message }
+		</div>
+	</div>
+}
+
+script reload() {
+    location.reload();
+}
+
+templ LogoutSuccess() {
+	<div class="glow-field">
+		<div class="glow-center">
+			Logout successful
+			@reload()
+		</div>
+	</div>
+}
